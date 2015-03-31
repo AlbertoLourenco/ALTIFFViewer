@@ -7,7 +7,7 @@ A TIFF files viewer (with multi-pages).
 
 ALTIFFViewer was created for simplify our life when we need show a TIFF collection pages/images using NSTiffSplit like auxiliar library.
 
-Visit https://github.com/Sharrp/NSTiffSplitter to see NSTiffSplit library. Thanks, Anton Sharrp Furin! :)
+Visit https://github.com/Sharrp/NSTiffSplitter to see NSTiffSpliter library. Thanks, Anton Sharrp Furin! :)
 
 So.. follow these steps:
 
