@@ -5,13 +5,13 @@
 
 A TIFF files viewer (with multi-pages).
 
-ALTIFFViewer was created for simplify our life when we need show a TIFF collection pages/images using NSTiffSplit like auxiliar library.
+ALTIFFViewer was created for simplify our life when we need show a TIFF collection pages/images.. using NSTiffSpliter like auxiliar library.
 
 Visit https://github.com/Sharrp/NSTiffSplitter to see NSTiffSpliter library. Thanks, Anton Sharrp Furin! :)
 
 So.. follow these steps:
 
-- Copy files into Classes directory on sample project;
+- Copy files from Classes directory at sample project to yours;
 - Import the ALTIFFViewer.h to your ViewController.h;
 - Call ALTIFFViewer when you have file NSData, usgin this code:
 
