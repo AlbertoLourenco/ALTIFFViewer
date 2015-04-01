@@ -1,7 +1,7 @@
-  ALTIFFViewer - iOS
+  ALTIFFViewer 2.0 - iOS
 ---------------
 
-![ALTIFFViewer v1.0](http://albertolourenco.com.br/altiffviewer.png)
+![ALTIFFViewer v2.0](http://albertolourenco.com.br/altiffviewer.png)
 
 A TIFF files viewer (with multi-pages).
 
