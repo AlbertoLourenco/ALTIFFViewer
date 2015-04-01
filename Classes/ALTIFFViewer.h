@@ -16,8 +16,19 @@
 #define ALTiff_BottomBarHeight 120.0f
 
 typedef enum {
-    ToolbarTheme_Dark    = 0,
-    ToolbarTheme_Light   = 1
+    
+    ToolbarTheme_Hidden                                 = 0,
+    
+    ToolbarTheme_Light                                  = 1,
+    ToolbarTheme_LightWithoutSlider                     = 2,
+    ToolbarTheme_LightWithoutRotateOption               = 3,
+    ToolbarTheme_LightWithoutSliderAndRotateOption      = 4,
+    
+    ToolbarTheme_Dark                                   = 5,
+    ToolbarTheme_DarkWithoutSlider                      = 6,
+    ToolbarTheme_DarkWithoutRotateOption                = 7,
+    ToolbarTheme_DarkWithoutSliderAndRotateOption       = 8
+    
 }ToolbarTheme;
 
 //-------------------------------------------------------------------

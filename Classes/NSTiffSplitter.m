@@ -137,9 +137,13 @@
 
 - (id) initWithPathToImage:(NSString *)imgPath
 {
-    NSData *imgData = [[NSData alloc] initWithContentsOfMappedFile:imgPath];   
+    NSError *error = nil;
+    NSData *imgData =  [[NSData alloc] initWithContentsOfFile:imgPath
+                                           options:NSDataReadingMappedIfSafe
+                                             error:&error];
+    
     self = [self initWithData:imgData usingMapping:NO];
-    imgData = nil;
+
     return self;
 }
 

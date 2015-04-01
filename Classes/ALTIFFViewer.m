@@ -16,44 +16,14 @@
 @synthesize splitter;
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
-//  UIViewController methods
+//  Object
 //----------------------------------------------------------------------------------------------------------------------------------------------
 
 - (id)initWithFileData:(NSData*)fileData documentTitle:(NSString*)documentTitle andLayoutTheme:(int)theme{
     
-    self.splitter = [[NSTiffSplitter alloc] initWithData:fileData usingMapping:NO];
-    
-    viewTheme = theme;
-    if (theme == ToolbarTheme_Light) {
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-        
-        vwBGColor                   = [UIColor colorWithWhite:0.914 alpha:0.85];
-        vwPageIndicatorBGColor      = [UIColor colorWithWhite:0.090 alpha:0.900];
-        
-        lblPageIndicatorTextColor   = [UIColor whiteColor];
-        lblTextColor                = [UIColor darkGrayColor];
-        lblTitleColor               = [UIColor colorWithWhite:0.164 alpha:1.000];
-        btnTextColor                = [UIColor colorWithRed:0.000 green:0.491 blue:1.000 alpha:1.000];
-        
-        sliderMaximumColor          = [UIColor colorWithRed:0.678 green:0.675 blue:0.682 alpha:1.000];
-        sliderMinimumColor          = [UIColor colorWithRed:0.002 green:0.227 blue:1.000 alpha:1.000];
-    }else
-        if (theme == ToolbarTheme_Dark) {
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-            
-            vwBGColor                   = [UIColor colorWithWhite:0.120 alpha:0.95];
-            vwPageIndicatorBGColor      = [UIColor colorWithWhite:0.865 alpha:0.900];
-            
-            lblPageIndicatorTextColor   = [UIColor colorWithWhite:0.221 alpha:1.000];
-            lblTextColor                = [UIColor colorWithWhite:0.873 alpha:1.000];
-            lblTitleColor               = [UIColor whiteColor];
-            btnTextColor                = [UIColor colorWithRed:0.000 green:0.584 blue:1.000 alpha:1.000];
-            
-            sliderMaximumColor          = [UIColor colorWithRed:0.497 green:0.495 blue:0.500 alpha:1.000];
-            sliderMinimumColor          = [UIColor colorWithRed:0.000 green:0.584 blue:1.000 alpha:1.000];
-        }
-    
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    self.splitter = [[NSTiffSplitter alloc] initWithData:fileData usingMapping:NO];
     
     //-----------------------------------------
     //  MainScroll - scroll to slide
@@ -64,6 +34,206 @@
     [self.mainScroll setShowsVerticalScrollIndicator:NO];
     [self.mainScroll setShowsHorizontalScrollIndicator:NO];
     [self.view addSubview:self.mainScroll];
+    
+    viewTheme = theme;
+    if (viewTheme != ToolbarTheme_Hidden) {
+        
+        if (viewTheme == ToolbarTheme_Light ||
+            viewTheme == ToolbarTheme_LightWithoutSlider ||
+            viewTheme == ToolbarTheme_LightWithoutRotateOption ||
+            viewTheme == ToolbarTheme_LightWithoutSliderAndRotateOption) {
+            
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+            
+            vwBGColor                   = [UIColor colorWithWhite:0.914 alpha:0.85];
+            vwPageIndicatorBGColor      = [UIColor colorWithWhite:0.090 alpha:0.900];
+            
+            lblPageIndicatorTextColor   = [UIColor whiteColor];
+            lblTextColor                = [UIColor darkGrayColor];
+            lblTitleColor               = [UIColor colorWithWhite:0.164 alpha:1.000];
+            btnTextColor                = [UIColor colorWithRed:0.000 green:0.491 blue:1.000 alpha:1.000];
+            
+            sliderMaximumColor          = [UIColor colorWithRed:0.678 green:0.675 blue:0.682 alpha:1.000];
+            sliderMinimumColor          = self.pageSlider.minimumTrackTintColor;
+            
+        }else
+            if (viewTheme == ToolbarTheme_Dark ||
+                viewTheme == ToolbarTheme_DarkWithoutSlider ||
+                viewTheme == ToolbarTheme_DarkWithoutRotateOption ||
+                viewTheme == ToolbarTheme_DarkWithoutSliderAndRotateOption) {
+                
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                
+                vwBGColor                   = [UIColor colorWithWhite:0.120 alpha:0.95];
+                vwPageIndicatorBGColor      = [UIColor colorWithWhite:0.865 alpha:0.900];
+                
+                lblPageIndicatorTextColor   = [UIColor colorWithWhite:0.221 alpha:1.000];
+                lblTextColor                = [UIColor colorWithWhite:0.873 alpha:1.000];
+                lblTitleColor               = [UIColor whiteColor];
+                btnTextColor                = [UIColor colorWithRed:0.000 green:0.584 blue:1.000 alpha:1.000];
+                
+                sliderMaximumColor          = [UIColor colorWithRed:0.497 green:0.495 blue:0.500 alpha:1.000];
+                sliderMinimumColor          = self.pageSlider.minimumTrackTintColor;
+                
+            }
+        
+        //-----------------------------------------
+        //  BottomBar - create / config
+        //-----------------------------------------
+        self.vwBottomBar = [[UIView alloc] initWithFrame:CGRectMake(0.0f, [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, ALTiff_BottomBarHeight)];
+        [self.vwBottomBar setBackgroundColor:vwBGColor];
+        [self.vwBottomBar setAlpha:0.0];
+        [self.view addSubview:self.vwBottomBar];
+        
+        //-----------------------------------------
+        //  UISlider - to change page
+        //-----------------------------------------
+        CGRect sliderFrame = self.vwBottomBar.frame;
+        sliderFrame.size.width = sliderFrame.size.width - 40.0f;
+        sliderFrame.origin.x = 20.0f;
+        sliderFrame.origin.y = self.vwBottomBar.frame.size.height - 107.5f;
+        
+        BOOL pageSliderWasAdded = FALSE;
+        
+        if (viewTheme != ToolbarTheme_DarkWithoutSlider &&
+            viewTheme != ToolbarTheme_DarkWithoutSliderAndRotateOption &&
+            viewTheme != ToolbarTheme_LightWithoutSlider &&
+            viewTheme != ToolbarTheme_LightWithoutSliderAndRotateOption) {
+            
+            pageSliderWasAdded = TRUE;
+            
+            self.pageSlider = [[UISlider alloc] init];
+            [self.pageSlider setFrame:sliderFrame];
+            [self.pageSlider setTranslatesAutoresizingMaskIntoConstraints:YES];
+            self.pageSlider.minimumValue = 1;
+            self.pageSlider.maximumValue = 1;
+            self.pageSlider.continuous = YES;
+            [self.pageSlider setMinimumTrackTintColor:sliderMinimumColor];
+            [self.pageSlider setMaximumTrackTintColor:sliderMaximumColor];
+            [self.vwBottomBar addSubview:self.pageSlider];
+            
+            [self.pageSlider addTarget:self action:@selector(sliderValue:) forControlEvents:UIControlEventValueChanged];
+            [self.pageSlider addTarget:self action:@selector(showPageIndicator:) forControlEvents:UIControlEventTouchDown];
+            [self.pageSlider addTarget:self action:@selector(hidePageIndicator:) forControlEvents:(UIControlEventTouchUpInside | UIControlEventTouchUpOutside)];
+        }
+        
+        //  Adjust bottom bar height size
+        //-----------------------------------
+        if (!pageSliderWasAdded) {
+            [self.vwBottomBar setFrame:CGRectMake(0.0f, [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, ALTiff_BottomBarHeight - 30)];
+        }
+        
+        BOOL pageRotateWasAdded = FALSE;
+        
+        if (viewTheme != ToolbarTheme_DarkWithoutRotateOption &&
+            viewTheme != ToolbarTheme_DarkWithoutSliderAndRotateOption &&
+            viewTheme != ToolbarTheme_LightWithoutRotateOption &&
+            viewTheme != ToolbarTheme_LightWithoutSliderAndRotateOption) {
+            
+            pageRotateWasAdded = TRUE;
+            
+            //-----------------------------------------
+            //  UIButton - rotate image left
+            //-----------------------------------------
+            UIImage* img = [self ipMaskedImageNamed:@"rotate" color:btnTextColor];
+            UIImage* flippedImage = [UIImage imageWithCGImage:img.CGImage
+                                                        scale:img.scale
+                                                  orientation:UIImageOrientationUpMirrored];
+            
+            self.btnRotateLeft = [[UIButton alloc] init];
+            if (pageSliderWasAdded) {
+                [self.btnRotateLeft setFrame:CGRectMake(10.0f, self.vwBottomBar.frame.size.height - 110.0f, 50.0f, 50.0f)];
+            }else{
+                [self.btnRotateLeft setFrame:CGRectMake(10.0f, self.vwBottomBar.frame.size.height - 80.0f, 50.0f, 50.0f)];
+            }
+            [self.btnRotateLeft setImage:flippedImage forState:UIControlStateNormal];
+            [self.btnRotateLeft setImage:flippedImage forState:UIControlStateHighlighted];
+            [self.btnRotateLeft addTarget:self action:@selector(rotateLeft) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self.vwBottomBar addSubview:self.btnRotateLeft];
+            
+            //-----------------------------------------
+            //  UIButton - rotate image left
+            //-----------------------------------------
+            self.btnRotateRight = [[UIButton alloc] init];
+            if (pageSliderWasAdded) {
+                [self.btnRotateRight setFrame:CGRectMake(self.vwBottomBar.frame.size.width - 60.0f, self.vwBottomBar.frame.size.height - 110.0f, 50.0f, 50.0f)];
+            }else{
+                [self.btnRotateRight setFrame:CGRectMake(self.vwBottomBar.frame.size.width - 60.0f, self.vwBottomBar.frame.size.height - 80.0f, 50.0f, 50.0f)];
+            }
+            [self.btnRotateRight setImage:img forState:UIControlStateNormal];
+            [self.btnRotateRight setImage:img forState:UIControlStateHighlighted];
+            [self.btnRotateRight addTarget:self action:@selector(rotateRight) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self.vwBottomBar addSubview:self.btnRotateRight];
+        }
+        
+        //-----------------------------------------
+        //  UILabel - document title
+        //-----------------------------------------
+        self.documentTitle = [[UILabel alloc] init];
+        if (pageSliderWasAdded && pageRotateWasAdded) {
+            [self.documentTitle setFrame:CGRectMake(sliderFrame.origin.x + 50, self.vwBottomBar.frame.size.height - 100.0f, sliderFrame.size.width - 100, 30.0f)];
+        }else
+            if (!pageSliderWasAdded && pageRotateWasAdded) {
+                [self.documentTitle setFrame:CGRectMake(sliderFrame.origin.x + 50, self.vwBottomBar.frame.size.height - 70.0f, sliderFrame.size.width - 100, 30.0f)];
+            }else
+                if (pageSliderWasAdded && !pageRotateWasAdded) {
+                    [self.documentTitle setFrame:CGRectMake(20, self.vwBottomBar.frame.size.height - 100.0f, self.vwBottomBar.frame.size.width - 40, 30.0f)];
+                }else
+                    if (!pageSliderWasAdded && !pageRotateWasAdded) {
+                        [self.documentTitle setFrame:CGRectMake(20, self.vwBottomBar.frame.size.height - 70.0f, self.vwBottomBar.frame.size.width - 40, 30.0f)];
+                    }
+        [self.documentTitle setText:documentTitle];
+        [self.documentTitle setTextAlignment:NSTextAlignmentCenter];
+        [self.documentTitle setFont:[UIFont systemFontOfSize:20.0f]];
+        [self.documentTitle setTextColor:lblTitleColor];
+        [self.vwBottomBar addSubview:self.documentTitle];
+        
+        //-----------------------------------------
+        //  UILabel - page indicator
+        //-----------------------------------------
+        self.pageLabel = [[UILabel alloc] init];
+        [self.pageLabel setFrame:CGRectMake(sliderFrame.origin.x + 50, self.vwBottomBar.frame.size.height - 35, sliderFrame.size.width - 100, 30.0f)];
+        [self.pageLabel setText:[NSString stringWithFormat:@"Page %i of %i", page+1, totalPages]];
+        [self.pageLabel setTextAlignment:NSTextAlignmentCenter];
+        [self.pageLabel setFont:[UIFont systemFontOfSize:14.0f]];
+        [self.pageLabel setTextColor:lblTextColor];
+        [self.vwBottomBar addSubview:self.pageLabel];
+        
+        //-----------------------------------------
+        //  UILabel - slider indicator
+        //-----------------------------------------
+        self.pageNumberIndicator = [[UIView alloc] init];
+        [self.pageNumberIndicator setFrame:CGRectMake(0.0f, self.vwBottomBar.frame.size.height - 95.0f, 100.0f, 30.0f)];
+        [self.pageNumberIndicator setTranslatesAutoresizingMaskIntoConstraints:YES];
+        [self.pageNumberIndicator setBackgroundColor:vwPageIndicatorBGColor];
+        [self.pageNumberIndicator.layer setMasksToBounds:YES];
+        [self.pageNumberIndicator.layer setCornerRadius:3.0f];
+        [self.pageNumberIndicator setAlpha:0.0f];
+        
+        self.pageNumberLabel = [[UILabel alloc] init];
+        [self.pageNumberLabel setFrame:CGRectMake(0.0f, 0.0f, 90.0f, 30.0f)];
+        [self.pageNumberLabel setCenter:CGPointMake(45.0f, 15.0f)];
+        [self.pageNumberLabel setTranslatesAutoresizingMaskIntoConstraints:YES];
+        [self.pageNumberLabel setTextAlignment:NSTextAlignmentCenter];
+        [self.pageNumberLabel setFont:[UIFont systemFontOfSize:14.0f]];
+        [self.pageNumberLabel setTextColor:lblPageIndicatorTextColor];
+        [self.pageNumberLabel setText:[NSString stringWithFormat:@"%i / %i", (page + 1), totalPages]];
+        
+        [self.pageNumberIndicator addSubview:self.pageNumberLabel];
+        [self.vwBottomBar addSubview:self.pageNumberIndicator];
+        
+    }else{
+        
+        vwBGColor                   = [UIColor colorWithWhite:0.914 alpha:0.85];
+        vwPageIndicatorBGColor      = [UIColor colorWithWhite:0.090 alpha:0.900];
+        
+        lblPageIndicatorTextColor   = [UIColor whiteColor];
+        lblTextColor                = [UIColor darkGrayColor];
+        lblTitleColor               = [UIColor colorWithWhite:0.164 alpha:1.000];
+        btnTextColor                = [UIColor colorWithRed:0.000 green:0.491 blue:1.000 alpha:1.000];
+    }
     
     //-----------------------------------------
     //  TopBar - create / config
@@ -83,108 +253,6 @@
     [self.btnCloseViewer addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
     
     [self.vwTopBar addSubview:self.btnCloseViewer];
-    
-    //-----------------------------------------
-    //  BottomBar - create / config
-    //-----------------------------------------
-    self.vwBottomBar = [[UIView alloc] initWithFrame:CGRectMake(0.0f, [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, ALTiff_BottomBarHeight)];
-    [self.vwBottomBar setBackgroundColor:vwBGColor];
-    [self.vwBottomBar setAlpha:0.0];
-    [self.view addSubview:self.vwBottomBar];
-    
-    //-----------------------------------------
-    //  UISlider - to change page
-    //-----------------------------------------
-    CGRect sliderFrame = self.vwBottomBar.frame;
-    sliderFrame.size.width = sliderFrame.size.width - 40.0f;
-    sliderFrame.origin.x = 20.0f;
-    sliderFrame.origin.y = self.vwBottomBar.frame.size.height - 107.5f;
-    
-    self.pageSlider = [[UISlider alloc] init];
-    [self.pageSlider setFrame:sliderFrame];
-    [self.pageSlider setTranslatesAutoresizingMaskIntoConstraints:YES];
-    self.pageSlider.minimumValue = 1;
-    self.pageSlider.maximumValue = 1;
-    self.pageSlider.continuous = YES;
-    [self.pageSlider setMinimumTrackTintColor:sliderMinimumColor];
-    [self.pageSlider setMaximumTrackTintColor:sliderMaximumColor];
-    [self.vwBottomBar addSubview:self.pageSlider];
-    
-    [self.pageSlider addTarget:self action:@selector(sliderValue:) forControlEvents:UIControlEventValueChanged];
-    [self.pageSlider addTarget:self action:@selector(showPageIndicator:) forControlEvents:UIControlEventTouchDown];
-    [self.pageSlider addTarget:self action:@selector(hidePageIndicator:) forControlEvents:(UIControlEventTouchUpInside | UIControlEventTouchUpOutside)];
-    
-    //-----------------------------------------
-    //  UILabel - page indicator
-    //-----------------------------------------
-    self.pageLabel = [[UILabel alloc] init];
-    [self.pageLabel setFrame:CGRectMake(sliderFrame.origin.x + 50, self.vwBottomBar.frame.size.height - 35, sliderFrame.size.width - 100, 30.0f)];
-    [self.pageLabel setText:[NSString stringWithFormat:@"Page %i of %i", page+1, totalPages]];
-    [self.pageLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.pageLabel setFont:[UIFont systemFontOfSize:14.0f]];
-    [self.pageLabel setTextColor:lblTextColor];
-    [self.vwBottomBar addSubview:self.pageLabel];
-    
-    //-----------------------------------------
-    //  UILabel - document title
-    //-----------------------------------------
-    self.documentTitle = [[UILabel alloc] init];
-    [self.documentTitle setFrame:CGRectMake(sliderFrame.origin.x + 50, self.vwBottomBar.frame.size.height - 100.0f, sliderFrame.size.width - 100, 30.0f)];
-    [self.documentTitle setText:documentTitle];
-    [self.documentTitle setTextAlignment:NSTextAlignmentCenter];
-    [self.documentTitle setFont:[UIFont systemFontOfSize:20.0f]];
-    [self.documentTitle setTextColor:lblTitleColor];
-    [self.vwBottomBar addSubview:self.documentTitle];
-    
-    //-----------------------------------------
-    //  UIButton - rotate image left
-    //-----------------------------------------
-    UIImage* img = [self ipMaskedImageNamed:@"rotate" color:btnTextColor];
-    UIImage* flippedImage = [UIImage imageWithCGImage:img.CGImage
-                                                scale:img.scale
-                                          orientation:UIImageOrientationUpMirrored];
-    
-    self.btnRotateLeft = [[UIButton alloc] init];
-    [self.btnRotateLeft setFrame:CGRectMake(10.0f, self.vwBottomBar.frame.size.height - 110.0f, 50.0f, 50.0f)];
-    [self.btnRotateLeft setImage:flippedImage forState:UIControlStateNormal];
-    [self.btnRotateLeft setImage:flippedImage forState:UIControlStateHighlighted];
-    [self.btnRotateLeft addTarget:self action:@selector(rotateLeft) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.vwBottomBar addSubview:self.btnRotateLeft];
-    
-    //-----------------------------------------
-    //  UIButton - rotate image left
-    //-----------------------------------------
-    self.btnRotateRight = [[UIButton alloc] init];
-    [self.btnRotateRight setFrame:CGRectMake(self.vwBottomBar.frame.size.width - 60.0f, self.vwBottomBar.frame.size.height - 110.0f, 50.0f, 50.0f)];
-    [self.btnRotateRight setImage:img forState:UIControlStateNormal];
-    [self.btnRotateRight setImage:img forState:UIControlStateHighlighted];
-    [self.btnRotateRight addTarget:self action:@selector(rotateRight) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.vwBottomBar addSubview:self.btnRotateRight];
-    
-    //-----------------------------------------
-    //  UILabel - slider indicator
-    //-----------------------------------------
-    self.pageNumberIndicator = [[UIView alloc] init];
-    [self.pageNumberIndicator setFrame:CGRectMake(0.0f, self.vwBottomBar.frame.size.height - 95.0f, 100.0f, 30.0f)];
-    [self.pageNumberIndicator setTranslatesAutoresizingMaskIntoConstraints:YES];
-    [self.pageNumberIndicator setBackgroundColor:vwPageIndicatorBGColor];
-    [self.pageNumberIndicator.layer setMasksToBounds:YES];
-    [self.pageNumberIndicator.layer setCornerRadius:3.0f];
-    [self.pageNumberIndicator setAlpha:0.0f];
-    
-    self.pageNumberLabel = [[UILabel alloc] init];
-    [self.pageNumberLabel setFrame:CGRectMake(0.0f, 0.0f, 90.0f, 30.0f)];
-    [self.pageNumberLabel setCenter:CGPointMake(45.0f, 15.0f)];
-    [self.pageNumberLabel setTranslatesAutoresizingMaskIntoConstraints:YES];
-    [self.pageNumberLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.pageNumberLabel setFont:[UIFont systemFontOfSize:14.0f]];
-    [self.pageNumberLabel setTextColor:lblPageIndicatorTextColor];
-    [self.pageNumberLabel setText:[NSString stringWithFormat:@"%i / %i", page+1, totalPages]];
-    
-    [self.pageNumberIndicator addSubview:self.pageNumberLabel];
-    [self.vwBottomBar addSubview:self.pageNumberIndicator];
     
     //-----------------------------------------
     //  UILabel - page indicator
@@ -211,6 +279,12 @@
     
     return [self init];
 }
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+//  UIViewController methods
+//----------------------------------------------------------------------------------------------------------------------------------------------
+
+#pragma mark UIViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -286,6 +360,8 @@
 //  UIScrollViewDelegate methods
 //----------------------------------------------------------------------------------------------------------------------------------------------
 
+#pragma mark ScrollView Delegate
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     UIImageView* img = [[scrollView subviews] objectAtIndex:0];
     
@@ -325,6 +401,8 @@
 //------------------------------
 //  Pagination
 //------------------------------
+
+#pragma mark Pagination
 
 - (void)sliderValue:(id)sender{
     
@@ -391,6 +469,8 @@
 //------------------------------
 //  Rotate image
 //------------------------------
+
+#pragma mark Rotate Image
 
 - (UIImage *)ipMaskedImageNamed:(NSString *)name color:(UIColor *)color{
     UIImage *image = [UIImage imageNamed:name];
@@ -499,6 +579,8 @@
 //  Others
 //------------------------------
 
+#pragma mark Other Methods
+
 - (void)close{
     [self hideBars];
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -526,7 +608,7 @@
 - (void)hideBars{
     if (!toolBarsIsHidden) {
         
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         
         [UIView animateWithDuration:0.3
                               delay:0.0
@@ -536,7 +618,7 @@
                              [self.vwBottomBar setAlpha:0.0];
                              
                              [self.vwTopBar setFrame:CGRectMake(0.0f, -ALTiff_TopBarHeight, [[UIScreen mainScreen] bounds].size.width, ALTiff_TopBarHeight)];
-                             [self.vwBottomBar setFrame:CGRectMake(0.0f, [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, ALTiff_BottomBarHeight)];
+                             [self.vwBottomBar setFrame:CGRectMake(0.0f, [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, self.vwBottomBar.frame.size.height)];
                          }
                          completion:^(BOOL finished){
                              toolBarsIsHidden = TRUE;
@@ -556,13 +638,20 @@
                          [self.vwBottomBar setAlpha:1.0f];
                          
                          [self.vwTopBar setFrame:CGRectMake(0.0f, 0.0f, [[UIScreen mainScreen] bounds].size.width, ALTiff_TopBarHeight)];
-                         [self.vwBottomBar setFrame:CGRectMake(0.0f, [[UIScreen mainScreen] bounds].size.height - ALTiff_BottomBarHeight, [[UIScreen mainScreen] bounds].size.width, ALTiff_BottomBarHeight)];
+                         [self.vwBottomBar setFrame:CGRectMake(0.0f,
+                                                               [[UIScreen mainScreen] bounds].size.height - self.vwBottomBar.frame.size.height,
+                                                               [[UIScreen mainScreen] bounds].size.width,
+                                                               self.vwBottomBar.frame.size.height)];
                      }
                      completion:^(BOOL finished){
                          toolBarsIsHidden = FALSE;
                          
-                         if (viewTheme == ToolbarTheme_Dark) {
-                             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                         if (viewTheme == ToolbarTheme_Dark ||
+                             viewTheme == ToolbarTheme_DarkWithoutSlider ||
+                             viewTheme == ToolbarTheme_DarkWithoutRotateOption ||
+                             viewTheme == ToolbarTheme_DarkWithoutSliderAndRotateOption) {
+                             
+                             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
                          }
                          
                      }];
