@@ -13,10 +13,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="m1F-YB-C2j">
-                                <rect key="frame" x="86" y="226" width="149" height="35"/>
+                                <rect key="frame" x="65" y="158" width="190" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.89179895279999999" green="0.89179895279999999" blue="0.89179895279999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Light">
+                                <state key="normal" title="Default">
                                     <color key="titleColor" red="0.42715259309999998" green="0.42715259309999998" blue="0.42715259309999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
@@ -24,20 +24,104 @@
                                     <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nm0-g2-Ugg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I5s-aO-RQD">
-                                <rect key="frame" x="86" y="276" width="149" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vlA-Gy-wbm">
+                                <rect key="frame" x="65" y="103" width="190" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Dark">
-                                    <color key="titleColor" red="0.89179895279999999" green="0.89179895279999999" blue="0.89179895279999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.09803922474" green="0.2470588386" blue="0.43529415129999999" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Hidden">
+                                    <color key="titleColor" red="0.38747933220000003" green="0.8297590896" blue="0.56534764130000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q7F-fi-B4B"/>
+                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bWj-KN-jHU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="i7P-oF-xmv">
+                                <rect key="frame" x="65" y="248" width="190" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89179895279999999" green="0.89179895279999999" blue="0.89179895279999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="- Rotate">
+                                    <color key="titleColor" red="0.42715259309999998" green="0.42715259309999998" blue="0.42715259309999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y51-d1-XX8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K0s-kT-SCV">
+                                <rect key="frame" x="65" y="204" width="190" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89179895279999999" green="0.89179895279999999" blue="0.89179895279999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="- Slider">
+                                    <color key="titleColor" red="0.42715259309999998" green="0.42715259309999998" blue="0.42715259309999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ys-E5-bZj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iao-8b-SPt">
+                                <rect key="frame" x="65" y="293" width="190" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89179895279999999" green="0.89179895279999999" blue="0.89179895279999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="- Slider &amp; Rotate">
+                                    <color key="titleColor" red="0.42715259309999998" green="0.42715259309999998" blue="0.42715259309999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1qi-1g-tG4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N4d-O7-QRA">
+                                <rect key="frame" x="65" y="344" width="190" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Default">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LqB-uV-68n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mgk-Sh-GTk">
+                                <rect key="frame" x="65" y="434" width="190" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="- Rotate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cr5-uL-ZKl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fUk-jL-SVR">
+                                <rect key="frame" x="65" y="388" width="190" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="- Slider">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUm-Nv-ogY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="F33-oK-ZzF">
+                                <rect key="frame" x="65" y="478" width="190" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="- Slider &amp; Rotate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTiffFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fiR-IH-VgW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a theme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iGv-3E-CMU">
-                                <rect key="frame" x="73" y="161" width="175" height="57"/>
+                                <rect key="frame" x="73" y="55" width="175" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -49,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242.66666666666666" y="431.68000000000001"/>
+            <point key="canvasLocation" x="242" y="431"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

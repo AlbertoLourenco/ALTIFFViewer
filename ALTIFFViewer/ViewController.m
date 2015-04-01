@@ -11,7 +11,6 @@
 #import "ALTIFFViewer.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
@@ -25,11 +24,27 @@
     NSString* filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"example.tiff"];
     NSData* fileData = [NSData dataWithContentsOfFile:filePath];
     
+    //-----------------------------------------------------
+    // Toolbar themes
+    //-----------------------------------------------------
+    //
+    //  ToolbarTheme_Hidden
+    //
+    //  ToolbarTheme_Light
+    //  ToolbarTheme_LightWithoutSlider
+    //  ToolbarTheme_LightWithoutRotateOption
+    //  ToolbarTheme_LightWithoutSliderAndRotateOption
+    //
+    //  ToolbarTheme_Dark
+    //  ToolbarTheme_DarkWithoutSlider
+    //  ToolbarTheme_DarkWithoutRotateOption
+    //  ToolbarTheme_DarkWithoutSliderAndRotateOption
+    //
+    //-----------------------------------------------------
+    
     ToolbarTheme theme = ToolbarTheme_Light;
     UIButton* button = (UIButton*)sender;
-    if(button.tag == 2){
-        theme = ToolbarTheme_Dark;
-    }
+    theme = (int)button.tag;
     
     ALTIFFViewer* tiffViewer = [[ALTIFFViewer alloc] initWithFileData:fileData documentTitle:@"This is about lions" andLayoutTheme:theme];
     [tiffViewer setModalTransitionStyle:UIModalTransitionStyleCoverVertical];

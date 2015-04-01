@@ -475,6 +475,7 @@
 				16FCBF811ACB0EDC00AB38AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16FCBF821ACB0EDC00AB38AA /* Build configuration list for PBXNativeTarget "ALTIFFViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +484,7 @@
 				16FCBF841ACB0EDC00AB38AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
