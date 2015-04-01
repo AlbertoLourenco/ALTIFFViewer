@@ -13,9 +13,9 @@ So.. follow these steps:
 
 - Copy files from Classes directory at sample project to yours;
 - Import the ALTIFFViewer.h to your ViewController.h;
-- Call ALTIFFViewer when you have file NSData, usgin this code:
+- Call ALTIFFViewer when you have file NSData, using this code:
 
-  ALTIFFViewer* tiffViewer = [[ALTIFFViewer alloc] initWithFileData:fileData documentTitle:@"This is about lions" andLayoutTheme:ToolbarTheme_Light];
+    ALTIFFViewer* tiffViewer = [[ALTIFFViewer alloc] initWithFileData:fileData documentTitle:@"This is about lions" andLayoutTheme:ToolbarTheme_Light];
     [tiffViewer setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:tiffViewer animated:YES completion:nil];
 
