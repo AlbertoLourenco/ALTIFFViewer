@@ -1,9 +1,9 @@
-  ALTIFFViewer 2.0 - iOS
+  ALTIFFViewer
 ---------------
 
-![ALTIFFViewer v2.0](http://albertolourenco.com.br/altiffviewer.png)
+![ALTIFFViewer v2.0](http://albertolourenco.com.br/github/altiffviewer.png)
 
-A TIFF files viewer (with multi-pages).
+A TIFF files viewer (with multi-pages) for iOS developed with Objective-C.
 
 ALTIFFViewer was created for simplify our life when we need show a TIFF collection pages/images.. using NSTiffSpliter like auxiliar library.
 
