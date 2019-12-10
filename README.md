@@ -1,7 +1,8 @@
-  ALTIFFViewer
+ALTIFFViewer
 ---------------
 
 ![ALTIFFViewer v2.0](http://albertolourenco.com.br/github/altiffviewer.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAlbertoLourenco%2FALTIFFViewer.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FAlbertoLourenco%2FALTIFFViewer?ref=badge_shield)
 
 A TIFF files viewer (with multi-pages) for iOS developed with Objective-C.
 
@@ -22,3 +23,7 @@ So.. follow these steps:
 Download de sample project and see how it works.
 
 Thanks!
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAlbertoLourenco%2FALTIFFViewer.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FAlbertoLourenco%2FALTIFFViewer?ref=badge_large)
