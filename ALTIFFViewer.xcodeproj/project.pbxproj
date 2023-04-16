@@ -13,22 +13,10 @@
 		16FCBF6B1ACB0EDC00AB38AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16FCBF691ACB0EDC00AB38AA /* Main.storyboard */; };
 		16FCBF6D1ACB0EDC00AB38AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16FCBF6C1ACB0EDC00AB38AA /* Images.xcassets */; };
 		16FCBF701ACB0EDC00AB38AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FCBF6E1ACB0EDC00AB38AA /* LaunchScreen.xib */; };
-		16FCBF7C1ACB0EDC00AB38AA /* ALTIFFViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FCBF7B1ACB0EDC00AB38AA /* ALTIFFViewerTests.m */; };
-		16FCBF981ACB129500AB38AA /* example.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 16FCBF971ACB129500AB38AA /* example.tiff */; };
-		16FCBF9E1ACB137300AB38AA /* ALTIFFViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FCBF9A1ACB137300AB38AA /* ALTIFFViewer.m */; };
-		16FCBF9F1ACB137300AB38AA /* NSTiffSplitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FCBF9C1ACB137300AB38AA /* NSTiffSplitter.m */; };
-		16FCBFA01ACB137300AB38AA /* rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCBF9D1ACB137300AB38AA /* rotate.png */; };
+		D3D5021829EC2DFC00501884 /* NSTiffSplitter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D5021329EC2DFC00501884 /* NSTiffSplitter.m */; };
+		D3D5021A29EC2DFC00501884 /* ALTIFFViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D5021629EC2DFC00501884 /* ALTIFFViewer.m */; };
+		D3D5021C29EC682C00501884 /* example.tiff in Resources */ = {isa = PBXBuildFile; fileRef = D3D5021B29EC682C00501884 /* example.tiff */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		16FCBF761ACB0EDC00AB38AA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 16FCBF541ACB0EDC00AB38AA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 16FCBF5B1ACB0EDC00AB38AA;
-			remoteInfo = ALTIFFViewer;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		16FCBF5C1ACB0EDC00AB38AA /* ALTIFFViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALTIFFViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,26 +29,15 @@
 		16FCBF6A1ACB0EDC00AB38AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16FCBF6C1ACB0EDC00AB38AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16FCBF6F1ACB0EDC00AB38AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		16FCBF751ACB0EDC00AB38AA /* ALTIFFViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALTIFFViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		16FCBF7A1ACB0EDC00AB38AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16FCBF7B1ACB0EDC00AB38AA /* ALTIFFViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALTIFFViewerTests.m; sourceTree = "<group>"; };
-		16FCBF971ACB129500AB38AA /* example.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = example.tiff; sourceTree = "<group>"; };
-		16FCBF991ACB137300AB38AA /* ALTIFFViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTIFFViewer.h; sourceTree = "<group>"; };
-		16FCBF9A1ACB137300AB38AA /* ALTIFFViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTIFFViewer.m; sourceTree = "<group>"; };
-		16FCBF9B1ACB137300AB38AA /* NSTiffSplitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTiffSplitter.h; sourceTree = "<group>"; };
-		16FCBF9C1ACB137300AB38AA /* NSTiffSplitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTiffSplitter.m; sourceTree = "<group>"; };
-		16FCBF9D1ACB137300AB38AA /* rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate.png; sourceTree = "<group>"; };
+		D3D5021329EC2DFC00501884 /* NSTiffSplitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTiffSplitter.m; sourceTree = "<group>"; };
+		D3D5021429EC2DFC00501884 /* ALTIFFViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTIFFViewer.h; sourceTree = "<group>"; };
+		D3D5021629EC2DFC00501884 /* ALTIFFViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTIFFViewer.m; sourceTree = "<group>"; };
+		D3D5021729EC2DFC00501884 /* NSTiffSplitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTiffSplitter.h; sourceTree = "<group>"; };
+		D3D5021B29EC682C00501884 /* example.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = example.tiff; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		16FCBF591ACB0EDC00AB38AA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		16FCBF721ACB0EDC00AB38AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				16FCBF5E1ACB0EDC00AB38AA /* ALTIFFViewer */,
-				16FCBF781ACB0EDC00AB38AA /* ALTIFFViewerTests */,
 				16FCBF5D1ACB0EDC00AB38AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				16FCBF5C1ACB0EDC00AB38AA /* ALTIFFViewer.app */,
-				16FCBF751ACB0EDC00AB38AA /* ALTIFFViewerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,8 +66,7 @@
 		16FCBF5E1ACB0EDC00AB38AA /* ALTIFFViewer */ = {
 			isa = PBXGroup;
 			children = (
-				16FCBF971ACB129500AB38AA /* example.tiff */,
-				16FCBF891ACB0F6200AB38AA /* Classes */,
+				D3D5021229EC2DFC00501884 /* Classes */,
 				16FCBF851ACB0F2900AB38AA /* AppDelegate */,
 				16FCBF861ACB0F3500AB38AA /* Controller */,
 				16FCBF871ACB0F3F00AB38AA /* View */,
@@ -107,23 +81,6 @@
 			children = (
 				16FCBF601ACB0EDC00AB38AA /* Info.plist */,
 				16FCBF611ACB0EDC00AB38AA /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		16FCBF781ACB0EDC00AB38AA /* ALTIFFViewerTests */ = {
-			isa = PBXGroup;
-			children = (
-				16FCBF7B1ACB0EDC00AB38AA /* ALTIFFViewerTests.m */,
-				16FCBF791ACB0EDC00AB38AA /* Supporting Files */,
-			);
-			path = ALTIFFViewerTests;
-			sourceTree = "<group>";
-		};
-		16FCBF791ACB0EDC00AB38AA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				16FCBF7A1ACB0EDC00AB38AA /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -158,23 +115,22 @@
 		16FCBF881ACB0F4C00AB38AA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D3D5021B29EC682C00501884 /* example.tiff */,
 				16FCBF6C1ACB0EDC00AB38AA /* Images.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		16FCBF891ACB0F6200AB38AA /* Classes */ = {
+		D3D5021229EC2DFC00501884 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				16FCBF991ACB137300AB38AA /* ALTIFFViewer.h */,
-				16FCBF9A1ACB137300AB38AA /* ALTIFFViewer.m */,
-				16FCBF9B1ACB137300AB38AA /* NSTiffSplitter.h */,
-				16FCBF9C1ACB137300AB38AA /* NSTiffSplitter.m */,
-				16FCBF9D1ACB137300AB38AA /* rotate.png */,
+				D3D5021729EC2DFC00501884 /* NSTiffSplitter.h */,
+				D3D5021329EC2DFC00501884 /* NSTiffSplitter.m */,
+				D3D5021429EC2DFC00501884 /* ALTIFFViewer.h */,
+				D3D5021629EC2DFC00501884 /* ALTIFFViewer.m */,
 			);
-			name = Classes;
-			path = /Users/albertolourenco/Desktop/ALTIFFViewer/Classes;
-			sourceTree = "<absolute>";
+			path = Classes;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -196,24 +152,6 @@
 			productReference = 16FCBF5C1ACB0EDC00AB38AA /* ALTIFFViewer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		16FCBF741ACB0EDC00AB38AA /* ALTIFFViewerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 16FCBF821ACB0EDC00AB38AA /* Build configuration list for PBXNativeTarget "ALTIFFViewerTests" */;
-			buildPhases = (
-				16FCBF711ACB0EDC00AB38AA /* Sources */,
-				16FCBF721ACB0EDC00AB38AA /* Frameworks */,
-				16FCBF731ACB0EDC00AB38AA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				16FCBF771ACB0EDC00AB38AA /* PBXTargetDependency */,
-			);
-			name = ALTIFFViewerTests;
-			productName = ALTIFFViewerTests;
-			productReference = 16FCBF751ACB0EDC00AB38AA /* ALTIFFViewerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,10 +164,6 @@
 					16FCBF5B1ACB0EDC00AB38AA = {
 						CreatedOnToolsVersion = 6.2;
 					};
-					16FCBF741ACB0EDC00AB38AA = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 16FCBF5B1ACB0EDC00AB38AA;
-					};
 				};
 			};
 			buildConfigurationList = 16FCBF571ACB0EDC00AB38AA /* Build configuration list for PBXProject "ALTIFFViewer" */;
@@ -237,6 +171,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -246,7 +181,6 @@
 			projectRoot = "";
 			targets = (
 				16FCBF5B1ACB0EDC00AB38AA /* ALTIFFViewer */,
-				16FCBF741ACB0EDC00AB38AA /* ALTIFFViewerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,18 +190,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16FCBFA01ACB137300AB38AA /* rotate.png in Resources */,
 				16FCBF6B1ACB0EDC00AB38AA /* Main.storyboard in Resources */,
 				16FCBF701ACB0EDC00AB38AA /* LaunchScreen.xib in Resources */,
 				16FCBF6D1ACB0EDC00AB38AA /* Images.xcassets in Resources */,
-				16FCBF981ACB129500AB38AA /* example.tiff in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		16FCBF731ACB0EDC00AB38AA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				D3D5021C29EC682C00501884 /* example.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,31 +204,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D5021829EC2DFC00501884 /* NSTiffSplitter.m in Sources */,
+				D3D5021A29EC2DFC00501884 /* ALTIFFViewer.m in Sources */,
 				16FCBF681ACB0EDC00AB38AA /* ViewController.m in Sources */,
-				16FCBF9F1ACB137300AB38AA /* NSTiffSplitter.m in Sources */,
-				16FCBF9E1ACB137300AB38AA /* ALTIFFViewer.m in Sources */,
 				16FCBF651ACB0EDC00AB38AA /* AppDelegate.m in Sources */,
 				16FCBF621ACB0EDC00AB38AA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		16FCBF711ACB0EDC00AB38AA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				16FCBF7C1ACB0EDC00AB38AA /* ALTIFFViewerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		16FCBF771ACB0EDC00AB38AA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 16FCBF5B1ACB0EDC00AB38AA /* ALTIFFViewer */;
-			targetProxy = 16FCBF761ACB0EDC00AB38AA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		16FCBF691ACB0EDC00AB38AA /* Main.storyboard */ = {
@@ -406,8 +316,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ALTIFFViewer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ALTIFFViewer;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -416,43 +329,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ALTIFFViewer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ALTIFFViewer;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		16FCBF831ACB0EDC00AB38AA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ALTIFFViewerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ALTIFFViewer.app/ALTIFFViewer";
-			};
-			name = Debug;
-		};
-		16FCBF841ACB0EDC00AB38AA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ALTIFFViewerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ALTIFFViewer.app/ALTIFFViewer";
 			};
 			name = Release;
 		};
@@ -473,15 +355,6 @@
 			buildConfigurations = (
 				16FCBF801ACB0EDC00AB38AA /* Debug */,
 				16FCBF811ACB0EDC00AB38AA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		16FCBF821ACB0EDC00AB38AA /* Build configuration list for PBXNativeTarget "ALTIFFViewerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				16FCBF831ACB0EDC00AB38AA /* Debug */,
-				16FCBF841ACB0EDC00AB38AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -19,7 +19,10 @@
 //  Object
 //----------------------------------------------------------------------------------------------------------------------------------------------
 
-- (id)initWithFileData:(NSData*)fileData documentTitle:(NSString*)documentTitle andLayoutTheme:(int)theme{
+- (void)configWithFileData:(NSData*)fileData documentTitle:(NSString*)documentTitle andLayoutTheme:(int)theme{
+    
+    [self setModalPresentationStyle: UIModalPresentationFullScreen];
+    [self setModalTransitionStyle: UIModalTransitionStyleCoverVertical];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -91,7 +94,7 @@
         CGRect sliderFrame = self.vwBottomBar.frame;
         sliderFrame.size.width = sliderFrame.size.width - 40.0f;
         sliderFrame.origin.x = 20.0f;
-        sliderFrame.origin.y = self.vwBottomBar.frame.size.height - 107.5f;
+        sliderFrame.origin.y = 15.0f;
         
         BOOL pageSliderWasAdded = FALSE;
         
@@ -105,9 +108,9 @@
             self.pageSlider = [[UISlider alloc] init];
             [self.pageSlider setFrame:sliderFrame];
             [self.pageSlider setTranslatesAutoresizingMaskIntoConstraints:YES];
-            self.pageSlider.minimumValue = 1;
-            self.pageSlider.maximumValue = 1;
-            self.pageSlider.continuous = YES;
+            [self.pageSlider setMinimumValue:1];
+            [self.pageSlider setMaximumValue:1];
+            [self.pageSlider setContinuous:YES];
             [self.pageSlider setMinimumTrackTintColor:sliderMinimumColor];
             [self.pageSlider setMaximumTrackTintColor:sliderMaximumColor];
             [self.vwBottomBar addSubview:self.pageSlider];
@@ -141,11 +144,7 @@
                                                   orientation:UIImageOrientationUpMirrored];
             
             self.btnRotateLeft = [[UIButton alloc] init];
-            if (pageSliderWasAdded) {
-                [self.btnRotateLeft setFrame:CGRectMake(10.0f, self.vwBottomBar.frame.size.height - 110.0f, 50.0f, 50.0f)];
-            }else{
-                [self.btnRotateLeft setFrame:CGRectMake(10.0f, self.vwBottomBar.frame.size.height - 80.0f, 50.0f, 50.0f)];
-            }
+            [self.btnRotateLeft setFrame:CGRectMake(10.0f, 15.0f, 50.0f, 50.0f)];
             [self.btnRotateLeft setImage:flippedImage forState:UIControlStateNormal];
             [self.btnRotateLeft setImage:flippedImage forState:UIControlStateHighlighted];
             [self.btnRotateLeft addTarget:self action:@selector(rotateLeft) forControlEvents:UIControlEventTouchUpInside];
@@ -156,11 +155,7 @@
             //  UIButton - rotate image left
             //-----------------------------------------
             self.btnRotateRight = [[UIButton alloc] init];
-            if (pageSliderWasAdded) {
-                [self.btnRotateRight setFrame:CGRectMake(self.vwBottomBar.frame.size.width - 60.0f, self.vwBottomBar.frame.size.height - 110.0f, 50.0f, 50.0f)];
-            }else{
-                [self.btnRotateRight setFrame:CGRectMake(self.vwBottomBar.frame.size.width - 60.0f, self.vwBottomBar.frame.size.height - 80.0f, 50.0f, 50.0f)];
-            }
+            [self.btnRotateRight setFrame:CGRectMake(self.vwBottomBar.frame.size.width - 60.0f, 15.0f, 50.0f, 50.0f)];
             [self.btnRotateRight setImage:img forState:UIControlStateNormal];
             [self.btnRotateRight setImage:img forState:UIControlStateHighlighted];
             [self.btnRotateRight addTarget:self action:@selector(rotateRight) forControlEvents:UIControlEventTouchUpInside];
@@ -172,18 +167,7 @@
         //  UILabel - document title
         //-----------------------------------------
         self.documentTitle = [[UILabel alloc] init];
-        if (pageSliderWasAdded && pageRotateWasAdded) {
-            [self.documentTitle setFrame:CGRectMake(sliderFrame.origin.x + 50, self.vwBottomBar.frame.size.height - 100.0f, sliderFrame.size.width - 100, 30.0f)];
-        }else
-            if (!pageSliderWasAdded && pageRotateWasAdded) {
-                [self.documentTitle setFrame:CGRectMake(sliderFrame.origin.x + 50, self.vwBottomBar.frame.size.height - 70.0f, sliderFrame.size.width - 100, 30.0f)];
-            }else
-                if (pageSliderWasAdded && !pageRotateWasAdded) {
-                    [self.documentTitle setFrame:CGRectMake(20, self.vwBottomBar.frame.size.height - 100.0f, self.vwBottomBar.frame.size.width - 40, 30.0f)];
-                }else
-                    if (!pageSliderWasAdded && !pageRotateWasAdded) {
-                        [self.documentTitle setFrame:CGRectMake(20, self.vwBottomBar.frame.size.height - 70.0f, self.vwBottomBar.frame.size.width - 40, 30.0f)];
-                    }
+        [self.documentTitle setFrame:CGRectMake(20.0f, 25.0f, self.vwBottomBar.frame.size.width - 40.0f, 30.0f)];
         [self.documentTitle setText:documentTitle];
         [self.documentTitle setTextAlignment:NSTextAlignmentCenter];
         [self.documentTitle setFont:[UIFont systemFontOfSize:20.0f]];
@@ -194,7 +178,11 @@
         //  UILabel - page indicator
         //-----------------------------------------
         self.pageLabel = [[UILabel alloc] init];
-        [self.pageLabel setFrame:CGRectMake(sliderFrame.origin.x + 50, self.vwBottomBar.frame.size.height - 35, sliderFrame.size.width - 100, 30.0f)];
+        if (pageSliderWasAdded) {
+            [self.pageLabel setFrame:CGRectMake(sliderFrame.origin.x + 50.0f, 95.0f, sliderFrame.size.width - 100.0f, 30.0f)];
+        }else{
+            [self.pageLabel setFrame:CGRectMake(sliderFrame.origin.x + 50.0f, 55.0f, sliderFrame.size.width - 100.0f, 30.0f)];
+        }
         [self.pageLabel setText:[NSString stringWithFormat:@"Page %i of %i", page+1, totalPages]];
         [self.pageLabel setTextAlignment:NSTextAlignmentCenter];
         [self.pageLabel setFont:[UIFont systemFontOfSize:14.0f]];
@@ -276,8 +264,6 @@
     
     [self.vwPageNumber addSubview:self.lblPageNumber];
     [self.view addSubview:self.vwPageNumber];
-    
-    return [self init];
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------

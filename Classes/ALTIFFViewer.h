@@ -12,8 +12,8 @@
 
 #import "NSTiffSplitter.h"
 
-#define ALTiff_TopBarHeight 65.0f
-#define ALTiff_BottomBarHeight 120.0f
+#define ALTiff_TopBarHeight 95.0f
+#define ALTiff_BottomBarHeight 140.0f
 
 typedef enum {
     
@@ -78,7 +78,7 @@ typedef enum {
 
 @property (nonatomic, strong) UIImageView *imageView;
 
-- (id)initWithFileData:(NSData*)fileData documentTitle:(NSString*)documentTitle andLayoutTheme:(int)theme;
+- (void)configWithFileData:(NSData*)fileData documentTitle:(NSString*)documentTitle andLayoutTheme:(int)theme;
 
 @end
 

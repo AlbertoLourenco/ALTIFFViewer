@@ -25,7 +25,7 @@
     NSData* fileData = [NSData dataWithContentsOfFile:filePath];
     
     //-----------------------------------------------------
-    // Toolbar themes
+    //  Toolbar themes
     //-----------------------------------------------------
     //
     //  ToolbarTheme_Hidden
@@ -46,9 +46,9 @@
     UIButton* button = (UIButton*)sender;
     theme = (int)button.tag;
     
-    ALTIFFViewer* tiffViewer = [[ALTIFFViewer alloc] initWithFileData:fileData documentTitle:@"This is about lions" andLayoutTheme:theme];
-    [tiffViewer setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-    [self presentViewController:tiffViewer animated:YES completion:nil];
+    ALTIFFViewer* tiffViewer = [[ALTIFFViewer alloc] init];
+    [tiffViewer configWithFileData: fileData documentTitle: @"This is about lions" andLayoutTheme: theme];
+    [self presentViewController: tiffViewer animated: YES completion: nil];
 }
 
 @end
